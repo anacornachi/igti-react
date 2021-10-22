@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Make Up Catalog - Ana Cornachi</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./src/styles/styles.css" />
+  </head>
+  <body class="overflow-x-hidden">
+    <header
+      class="
+        bg-gradient-to-r
+        from-purple-400
+        via-pink-500
+        to-red-500
+        h-16
+        flex
+        justify-center
+        items-center
+        w-full
+      "
+    >
+      <h1 class="text-white text-3xl">Make Up Catalog</h1>
+    </header>
+    <main class="w-screen">
+      <nav
+        class="
+          w-full
+          h-20
+          flex
+          items-center
+          justify-between
+          bg-gray-100
+          shadow-xl
+        "
+      >
+        <ul class="max-w-7xl mx-auto flex gap-10 items-center justify-between">
+          <li>
+            <label for="name">Buscar por nome:</label
+            ><input
+              class="
+                ml-2
+                bg-gray-100
+                p-2
+                border-0 border-b-2 border-red-200
+                focus:outline-none
+              "
+              type="text"
+              id="name"
+              placeholder="Busque aqui pelo produto"
+              data-input-name
+            />
+          </li>
+          <li>
+            <label for="brands">Marca:</label>
+            <select
+              name="brands"
+              id="brands"
+              class="focus:outline-none ml-2"
+              data-select-brands
+            >
+              <option value="all" disabled selected class="default">
+                Todas as marcas
+              </option>
+            </select>
+          </li>
+          <li>
+            <label for="brands">Tipo:</label>
+            <select
+              name="brands"
+              id="brands"
+              class="focus:outline-none ml-2"
+              data-select-types
+            >
+              <option value="default" disabled selected>Escolha um tipo</option>
+            </select>
+          </li>
+          <li>
+            <label for="order">Filtrar por:</label>
+            <select
+              name="brands"
+              id="order"
+              class="focus:outline-none ml-2"
+              data-order-list
+            >
+              <option value="lowest-price">Menores preços</option>
+              <option value="biggest-price">Maiores preços</option>
+              <option value="a-z">A - Z</option>
+              <option value="z-a">Z - A</option>
+            </select>
+          </li>
+        </ul>
+      </nav>
+      <div
+        class="max-w-7xl mx-auto flex gap-5 flex-wrap items-center my-4"
+        data-filters-pills
+      ></div>
+      <div
+        class="max-w-7xl mx-auto flex gap-5 flex-wrap mt-5 justify-center my-16"
+        data-products
+      ></div>
+    </main>
+    <footer
+      class="h-16 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
+    >
+      <div class="max-w-7xl mx-auto h-full flex items-center justify-around">
+        <h3 class="text-white">Developed by: Ana Cornachi</h3>
+        <p class="text-white">Módulo 1 - IGTI</p>
+        <p class="text-white">BootCamp React</p>
+      </div>
+    </footer>
+    <script type="module" src="./src/js/main.js"></script>
+  </body>
+</html>
