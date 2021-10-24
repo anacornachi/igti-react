@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet"
+    />
     <title>Make Up Catalog - Ana Cornachi</title>
     <link
       href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
@@ -25,7 +29,7 @@
         w-full
       "
     >
-      <h1 class="text-white text-3xl">Make Up Catalog</h1>
+      <h1 class="text-white text-3xl">Make Up Catalog &#128133; &#10024;</h1>
     </header>
     <main class="w-screen">
       <nav
@@ -40,21 +44,31 @@
         "
       >
         <ul class="max-w-7xl mx-auto flex gap-10 items-center justify-between">
-          <li>
-            <label for="name">Buscar por nome:</label
-            ><input
-              class="
-                ml-2
-                bg-gray-100
-                p-2
-                border-0 border-b-2 border-red-200
-                focus:outline-none
-              "
-              type="text"
-              id="name"
-              placeholder="Busque aqui pelo produto"
-              data-input-name
-            />
+          <li class="flex items-center justify-center">
+            <label for="name">Buscar por nome:</label>
+            <div class="flex items-center">
+              <input
+                class="
+                  ml-2
+                  bg-gray-100
+                  p-2
+                  border-0 border-b-2 border-red-200
+                  focus:outline-none
+                  mr-2
+                  text-sm
+                  w-48
+                "
+                type="text"
+                id="name"
+                placeholder="Busque aqui pelo produto"
+                data-input-name
+              />
+              <button data-filter-name>
+                <span class="material-icons fill-current text-xl">
+                  arrow_forward
+                </span>
+              </button>
+            </div>
           </li>
           <li>
             <label for="brands">Marca:</label>
@@ -64,7 +78,7 @@
               class="focus:outline-none ml-2"
               data-select-brands
             >
-              <option value="all" disabled selected class="default">
+              <option value="all" selected class="default">
                 Todas as marcas
               </option>
             </select>
@@ -88,6 +102,7 @@
               class="focus:outline-none ml-2"
               data-order-list
             >
+              <option value="lowest-price">Melhor avaliados</option>
               <option value="lowest-price">Menores preços</option>
               <option value="biggest-price">Maiores preços</option>
               <option value="a-z">A - Z</option>
@@ -109,11 +124,12 @@
       class="h-16 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500"
     >
       <div class="max-w-7xl mx-auto h-full flex items-center justify-around">
-        <h3 class="text-white">Developed by: Ana Cornachi</h3>
+        <h3 class="text-white">Ana Cornachi</h3>
         <p class="text-white">Módulo 1 - IGTI</p>
         <p class="text-white">BootCamp React</p>
       </div>
     </footer>
     <script type="module" src="./src/js/main.js"></script>
+    <script src="./src/utils/errorHandler.js"></script>
   </body>
 </html>
