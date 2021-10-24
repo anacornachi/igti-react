@@ -8,6 +8,7 @@ const selectors = {
   filters: "[data-filters-pills]",
   clearButtons: "[data-clear-filters]",
   filterByName: "[data-filter-name]",
+  orderList: "[data-order-list]",
 };
 
 const ecommerce = new Ecommerce(selectors);

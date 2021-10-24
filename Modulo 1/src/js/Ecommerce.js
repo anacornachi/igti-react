@@ -14,6 +14,7 @@ export class Ecommerce {
     this.localProducts = JSON.parse(localStorage.getItem("allProducts"));
     this.productsInScreen = [];
     this.buttonFilterName = document.querySelector(selectors.filterByName);
+    this.orderList = document.querySelector(selectors.orderList);
 
     this.loadProducts();
     this.loadBrands();
@@ -59,6 +60,10 @@ export class Ecommerce {
 
       this.showTypesList(event);
     });
+
+    this.orderList.addEventListener("change", (event) => {
+      this.order(event);
+    });
   }
 
   renderProducts(productsList) {
@@ -76,14 +81,14 @@ export class Ecommerce {
                 alt="${item.name ?? ""}"
               />
               <div class="h-1/4 w-full flex flex-col gap-2 items-center justify-center">
-              <h2 class="flex items-center justify-center text-sm font-bold">${
+              <h2 class="h-2/4 flex items-center justify-center text-sm font-bold">${
                 item.name ?? ""
               }</h2>
-              <div class="flex flex-col w-full justify-around items-center">
-                <div class=" w-full h-full px-2 bg-indigo-400 text-white rounded flex items-center justify-center mb-1">
+              <div class="flex flex-col w-full justify-around items-center h-1/4">
+                <div class=" w-full h-full px-2 bg-indigo-400 text-white rounded flex items-center justify-center mb-1 text-sm">
                   ${item.brand ?? ""}
                 </div>
-                <div class=" w-full h-full px-2 bg-pink-400 text-white rounded flex items-center justify-center">
+                <div class=" w-full h-full px-2 bg-pink-400 text-white rounded flex items-center justify-center text-sm">
                   ${convertToBRL(item.price ?? 0)}
                 </div>
                 </div>
@@ -294,5 +299,52 @@ export class Ecommerce {
     });
 
     this.renderProducts(filteredNames);
+  }
+
+  order(event) {
+    switch (event.target.value) {
+      case "rating":
+        const ratingArray = this.localProducts.sort(
+          (a, b) => b.rating - a.rating
+        );
+        this.renderProducts(ratingArray.slice(0, 16));
+        break;
+      case "lowest-price":
+        const lowestPriceArray = this.localProducts.sort(
+          (a, b) => a.price - b.price
+        );
+        this.renderProducts(lowestPriceArray.slice(0, 16));
+        break;
+      case "biggest-price":
+        const biggestPriceArray = this.localProducts.sort(
+          (a, b) => b.price - a.price
+        );
+        this.renderProducts(biggestPriceArray.slice(0, 16));
+        break;
+      case "a-z":
+        const aToZArray = this.localProducts.sort((a, b) => {
+          if (a.name < b.name) {
+            return -1;
+          }
+          if (a.name > b.name) {
+            return 1;
+          }
+          return 0;
+        });
+        this.renderProducts(aToZArray.slice(0, 16));
+        break;
+      case "z-a":
+        const zToAArray = this.localProducts.sort((a, b) => {
+          if (b.name < a.name) {
+            return -1;
+          }
+          if (b.name > a.name) {
+            return 1;
+          }
+          return 0;
+        });
+        this.renderProducts(zToAArray.slice(0, 16));
+        break;
+    }
   }
 }
