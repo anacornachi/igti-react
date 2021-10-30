@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>País</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="h-16 bg-gray-200 w-100 shadow-2xl">
+      <div class="max-w-7xl mx-auto h-full text-red-700">
+        <div class="h-full flex justify-between items-center">
+          <h1 class="text-xl font-bold">Informações Covid-19</h1>
+          <nav class="">
+            <ul class="flex gap-20">
+              <li>
+                <a
+                  href="#"
+                  target="_blank"
+                  class="
+                    border-b-2 border-gray-200
+                    hover:border-red-700
+                    font-semibold
+                  "
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="./country.html"
+                  target="_blank"
+                  class="
+                    border-b-2 border-gray-200
+                    hover:border-red-700
+                    font-semibold
+                  "
+                  >País</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  target="_blank"
+                  class="
+                    border-b-2 border-gray-200
+                    hover:border-red-700
+                    font-semibold
+                  "
+                  >Top 10</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="w-full h-full">
+        <div class="max-w-7xl flex mx-auto">
+          <div
+            class="
+              h-96
+              w-2/4
+              bg-gray-400 bg-opacity-20
+              rounded-2xl
+              border-white
+              filter
+              brightness-110
+              shadow-2xl
+              p-5
+              flex flex-col
+            "
+          >
+            <h2>Filtros</h2>
+            <form action="filter-country" class="flex flex-col">
+              <label for="start-day">Data de início: </label>
+              <input type="date" id="start-day" />
+              <label for="start-day">Data fim: </label>
+              <input type="date" id="end-day" />
+              <label for="start-day">País: </label>
+              <input type="date" id="end-day" />
+            </form>
+          </div>
+          <div class="transform scale-x-105">
+            <canvas id="chart-pizza" class="" data-chart-pizza></canvas>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
