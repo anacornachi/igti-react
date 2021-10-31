@@ -7,3 +7,4 @@ const selectors = {
 };
 
 const covidData = new CovidData(selectors);
+covidData.loadHome();

@@ -19,8 +19,7 @@
             <ul class="flex gap-20">
               <li>
                 <a
-                  href="#"
-                  target="_blank"
+                  href="./index.html"
                   class="
                     border-b-2 border-gray-200
                     hover:border-red-700
@@ -31,7 +30,7 @@
               </li>
               <li>
                 <a
-                  href="./country.html"
+                  href="#"
                   target="_blank"
                   class="
                     border-b-2 border-gray-200
@@ -59,12 +58,11 @@
       </div>
     </header>
     <main>
-      <div class="w-full h-full">
-        <div class="max-w-7xl flex mx-auto">
+      <div class="w-full h-screen">
+        <div class="max-w-7xl height flex mx-auto py-14 gap-10">
           <div
             class="
-              h-96
-              w-2/4
+              w-1/4
               bg-gray-400 bg-opacity-20
               rounded-2xl
               border-white
@@ -73,23 +71,75 @@
               shadow-2xl
               p-5
               flex flex-col
+              justify-center
             "
           >
-            <h2>Filtros</h2>
-            <form action="filter-country" class="flex flex-col">
-              <label for="start-day">Data de início: </label>
-              <input type="date" id="start-day" />
-              <label for="start-day">Data fim: </label>
-              <input type="date" id="end-day" />
-              <label for="start-day">País: </label>
-              <input type="date" id="end-day" />
+            <h2 class="text-xl font-semibold mb-5 flex justify-center">
+              Filtros
+            </h2>
+
+            <form action="submit" class="flex flex-col gap-5 h-full" data-form>
+              <div class="flex flex-col gap-2">
+                <label for="start-day">Data de início: </label>
+                <input required type="date" id="start-day" data-start-date />
+              </div>
+              <div class="flex flex-col gap-2">
+                <label for="start-day">Data fim: </label>
+                <input required type="date" id="end-day" data-end-date />
+              </div>
+              <div class="flex flex-col gap-2">
+                <label for="start-day">País: </label>
+                <select type="date" id="country" required data-country></select>
+              </div>
+              <label for="start-day">Dados: </label>
+              <select type="date" id="status-data" required data-status>
+                <option value="Confirmed">Casos confirmados</option>
+                <option value="Deaths">Número de mortes</option>
+                <option value="Recovered">Casos recuperados</option>
+              </select>
+              <button
+                class="
+                  h-10
+                  bg-gray-300
+                  border-2 border-red-700
+                  transform
+                  transition
+                  rounded-2xl
+                  duration-300
+                  text-red-700
+                  font-semibold
+                  hover:bg-red-700 hover:text-white
+                  mt-2
+                "
+                data-apply-button
+              >
+                Aplicar
+              </button>
             </form>
           </div>
-          <div class="transform scale-x-105">
-            <canvas id="chart-pizza" class="" data-chart-pizza></canvas>
+          <div
+            class="
+              h-full
+              w-3/4
+              bg-gray-400 bg-opacity-20
+              rounded-2xl
+              border-white
+              filter
+              brightness-110
+              shadow-2xl
+              items-center
+              justify-center
+            "
+          >
+            <div class="w-full h-full p-10">
+              <canvas id="chart-daily" class="" data-chart-daily></canvas>
+            </div>
           </div>
         </div>
       </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="./src/js/country.js"></script>
   </body>
 </html>

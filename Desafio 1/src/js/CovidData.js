@@ -4,12 +4,39 @@ import { formatDate } from "../utils/formatDate.js";
 
 export class CovidData {
   constructor(selectors) {
-    this.summary = JSON.parse(localStorage.getItem("summary"));
-    this.boardKpi = document.querySelector(selectors.canvaKpi);
-    this.boardPizza = document.querySelector(selectors.canvaPizza);
-    this.boardPareto = document.querySelector(selectors.canvaPareto);
+    this.executeIfIsPage("/index", () => {
+      this.summary = JSON.parse(localStorage.getItem("summary"));
+      this.boardKpi = document.querySelector(selectors.canvaKpi);
+      this.boardPizza = document.querySelector(selectors.canvaPizza);
+      this.boardPareto = document.querySelector(selectors.canvaPareto);
+    });
 
-    this.loadHome();
+    this.executeIfIsPage("/country", async () => {
+      this.form = document.querySelector(selectors.dataForm);
+      this.applyButton = document.querySelector(selectors.applyButton);
+      this.isChartLoaded = false;
+      this.form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        this.applyFilters();
+      });
+
+      this.initialDate = document.querySelector(selectors.startDate);
+      this.endDate = document.querySelector(selectors.endDate);
+      this.selectCountry = document.querySelector(selectors.selectCountry);
+      this.selectStatus = document.querySelector(selectors.statusData);
+      await this.loadCountry();
+      const past = new Date().setFullYear(2021, 8, 30);
+      const today = new Date();
+      this.initialDate.value = new Date(past).toISOString().substr(0, 10);
+      this.endDate.value = today.toISOString().substr(0, 10);
+      this.applyFilters();
+    });
+  }
+
+  executeIfIsPage(pagename, callback) {
+    if (window.location.pathname.replace(".html", "") === pagename) {
+      callback();
+    }
   }
 
   async loadHome() {
@@ -111,5 +138,67 @@ export class CovidData {
       document.getElementById("chart-pareto"),
       config
     );
+  }
+
+  async loadCountry() {
+    const { data } = await api.get("/countries");
+
+    const countries = data.map((item) => {
+      return `<option value="${item.Country}" ${
+        item.Country === "Brazil" ? "selected" : ""
+      }>${item.Country}</option>`;
+    });
+    this.selectCountry.innerHTML = countries.sort();
+  }
+
+  async applyFilters() {
+    const { data } = await api.get(
+      `/country/${this.selectCountry.value}?from=${this.initialDate.value}&to=${this.endDate.value}`
+    );
+
+    console.log({ data });
+
+    const status = this.selectStatus.value;
+
+    function analyzeCase(status) {
+      if (status === "Deaths") {
+        return { label: "óbitos", data: data.map((item) => item.Deaths) };
+      } else if (status === "Recovered") {
+        return {
+          label: "recuperados",
+          data: data.map((item) => item.Recovered),
+        };
+      } else {
+        return {
+          label: "novos casos",
+          data: data.map((item) => item.Confirmed),
+        };
+      }
+    }
+
+    const labels = data.map((item) => formatDate(item.Date, true));
+    const info = {
+      labels: labels,
+      datasets: [
+        {
+          label: `Número diário de ${Object.values(analyzeCase(status))[0]} `,
+          data: Object.values(analyzeCase(status))[1],
+          fill: false,
+          borderColor: "rgb(75, 192, 192)",
+          tension: 0.1,
+        },
+      ],
+    };
+    const config = {
+      type: "line",
+      data: info,
+    };
+
+    if (this.isChartLoaded) {
+      this.countries.destroy();
+      this.isChartLoaded = false;
+    }
+    this.countries = new Chart(document.getElementById("chart-daily"), config);
+    this.isChartLoaded = true;
   }
 }
