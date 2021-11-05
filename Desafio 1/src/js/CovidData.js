@@ -4,7 +4,8 @@ import { formatDate } from "../utils/formatDate.js";
 
 export class CovidData {
   constructor(selectors) {
-    this.executeIfIsPage("/index", () => {
+    console.log({ pathname: window.location.pathname });
+    this.executeIfIsPage("/index" || "/", () => {
       this.summary = JSON.parse(localStorage.getItem("summary"));
       this.boardKpi = document.querySelector(selectors.canvaKpi);
       this.boardPizza = document.querySelector(selectors.canvaPizza);
