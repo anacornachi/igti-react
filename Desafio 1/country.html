@@ -9,132 +9,216 @@
       href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./src/css/global.css" />
   </head>
   <body>
     <header class="h-16 bg-gray-200 w-100 shadow-2xl">
-      <div class="max-w-7xl mx-auto h-full text-red-700">
-        <div class="h-full flex justify-between items-center">
-          <h1 class="text-xl font-bold">Informações Covid-19</h1>
-          <nav class="">
-            <ul class="flex gap-20">
-              <li>
-                <a
-                  href="./index.html"
-                  class="
-                    border-b-2 border-gray-200
-                    hover:border-red-700
-                    font-semibold
-                  "
-                  >Home</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  target="_blank"
-                  class="
-                    border-b-2 border-gray-200
-                    hover:border-red-700
-                    font-semibold
-                  "
-                  >País</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  target="_blank"
-                  class="
-                    border-b-2 border-gray-200
-                    hover:border-red-700
-                    font-semibold
-                  "
-                  >Top 10</a
-                >
-              </li>
-            </ul>
-          </nav>
-        </div>
+      <div
+        class="
+          max-w-7xl
+          mx-auto
+          h-full
+          text-red-700
+          flex
+          justify-between
+          items-center
+        "
+      >
+        <a href="./index.html"
+          ><h1 class="text-xl font-bold">Informações Covid-19</h1></a
+        >
+        <nav class="">
+          <ul class="flex gap-20">
+            <li>
+              <a
+                href="./index.html"
+                class="
+                  border-b-2 border-gray-200
+                  hover:border-red-700
+                  font-semibold
+                "
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                target="_blank"
+                class="
+                  border-b-2 border-gray-200
+                  hover:border-red-700
+                  font-semibold
+                "
+                >País</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                target="_blank"
+                class="
+                  border-b-2 border-gray-200
+                  hover:border-red-700
+                  font-semibold
+                "
+                >Top 10</a
+              >
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
-    <main>
-      <div class="w-full h-screen">
-        <div class="max-w-7xl height flex mx-auto py-14 gap-10">
-          <div
-            class="
-              w-1/4
-              bg-gray-400 bg-opacity-20
-              rounded-2xl
-              border-white
-              filter
-              brightness-110
-              shadow-2xl
-              p-5
-              flex flex-col
-              justify-center
-            "
+    <main class="height w-screen overflow-hidden">
+      <div
+        class="
+          max-w-7xl
+          h-full
+          flex
+          mx-auto
+          gap-5
+          items-center
+          justify-center
+          p-10
+        "
+      >
+        <div
+          class="
+            w-1/4
+            h-full
+            bg-gray-400 bg-opacity-20
+            rounded-2xl
+            filter
+            brightness-110
+            shadow-2xl
+            p-5
+            flex flex-col
+            justify-center
+            items-center
+            gap-5
+          "
+        >
+          <h2
+            class="text-xl font-semibold flex justify-center h-16 items-center"
           >
-            <h2 class="text-xl font-semibold mb-5 flex justify-center">
-              Filtros
-            </h2>
-
-            <form action="submit" class="flex flex-col gap-5 h-full" data-form>
-              <div class="flex flex-col gap-2">
-                <label for="start-day">Data de início: </label>
-                <input required type="date" id="start-day" data-start-date />
-              </div>
-              <div class="flex flex-col gap-2">
-                <label for="start-day">Data fim: </label>
-                <input required type="date" id="end-day" data-end-date />
-              </div>
-              <div class="flex flex-col gap-2">
-                <label for="start-day">País: </label>
-                <select type="date" id="country" required data-country></select>
-              </div>
+            Filtros
+          </h2>
+          <form
+            action="submit"
+            class="flex flex-col gap-6 h-full w-full"
+            data-form
+          >
+            <div class="flex flex-col gap-2">
+              <label for="start-day">Data de início: </label>
+              <input
+                required
+                class="
+                  bg-gray-300 bg-opacity-20
+                  focus:outline-none
+                  border-black border-b-2
+                "
+                type="date"
+                id="start-day"
+                data-start-date
+              />
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="start-day">Data fim: </label>
+              <input
+                required
+                class="
+                  bg-gray-300 bg-opacity-20
+                  focus:outline-none
+                  border-black border-b-2
+                "
+                type="date"
+                id="end-day"
+                data-end-date
+              />
+            </div>
+            <div class="flex flex-col gap-2">
+              <label for="start-day">País: </label>
+              <select
+                type="date"
+                id="country"
+                class="
+                  bg-gray-300 bg-opacity-20
+                  focus:outline-none
+                  border-black border-b-2
+                "
+                required
+                data-country
+              ></select>
+            </div>
+            <div class="flex flex-col gap-2">
               <label for="start-day">Dados: </label>
-              <select type="date" id="status-data" required data-status>
+              <select
+                type="date"
+                id="status-data"
+                class="
+                  bg-gray-300 bg-opacity-20
+                  focus:outline-none
+                  border-black border-b-2
+                "
+                required
+                data-status
+              >
                 <option value="Confirmed">Casos confirmados</option>
                 <option value="Deaths">Número de mortes</option>
                 <option value="Recovered">Casos recuperados</option>
               </select>
-              <button
-                class="
-                  h-10
-                  bg-gray-300
-                  border-2 border-red-700
-                  transform
-                  transition
-                  rounded-2xl
-                  duration-300
-                  text-red-700
-                  font-semibold
-                  hover:bg-red-700 hover:text-white
-                  mt-2
-                "
-                data-apply-button
-              >
-                Aplicar
-              </button>
-            </form>
+            </div>
+            <button
+              class="
+                h-10
+                bg-gray-300
+                border-2 border-red-700
+                transform
+                transition
+                rounded-2xl
+                duration-300
+                text-red-700
+                font-semibold
+                hover:bg-red-700 hover:text-white
+                mt-2
+              "
+              data-apply-button
+            >
+              Aplicar
+            </button>
+          </form>
+        </div>
+        <div
+          class="
+            h-full
+            w-3/4
+            bg-gray-400 bg-opacity-20
+            rounded-2xl
+            border-white
+            filter
+            brightness-110
+            shadow-2xl
+            items-center
+            justify-center
+            flex-col
+          "
+        >
+          <div class="w-full h-full p-10">
+            <canvas id="chart-daily" class="" data-chart-daily></canvas>
           </div>
           <div
+            id="kpi"
+            data-chart-total
             class="
               h-full
-              w-3/4
-              bg-gray-400 bg-opacity-20
-              rounded-2xl
-              border-white
-              filter
-              brightness-110
-              shadow-2xl
-              items-center
+              w-full
+              gap-2
+              flex
               justify-center
+              items-center
+              rounded-3xl-2xl
+              mx-auto
             "
-          >
-            <div class="w-full h-full p-10">
-              <canvas id="chart-daily" class="" data-chart-daily></canvas>
-            </div>
-          </div>
+          ></div>
         </div>
       </div>
     </main>

@@ -7,6 +7,7 @@ const selectors = {
   statusData: "[data-status]",
   applyButton: "[data-apply-button]",
   dataForm: "[data-form]",
+  kpiCountry: "[data-chart-total]",
 };
 
 const covidData = new CovidData(selectors);

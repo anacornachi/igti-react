@@ -19,6 +19,7 @@ export class CovidData {
         event.preventDefault();
         this.applyFilters();
       });
+      this.kpiCountryTotal = document.querySelector(selectors.kpiCountry);
 
       this.initialDate = document.querySelector(selectors.startDate);
       this.endDate = document.querySelector(selectors.endDate);
@@ -34,7 +35,10 @@ export class CovidData {
   }
 
   executeIfIsPage(pagename, callback) {
-    if (window.location.pathname.replace(".html", "") === pagename) {
+    if (
+      typeof window !== undefined &&
+      window.location.pathname.replace(".html", "") === pagename
+    ) {
       callback();
     }
   }
@@ -155,8 +159,6 @@ export class CovidData {
     const { data } = await api.get(
       `/country/${this.selectCountry.value}?from=${this.initialDate.value}&to=${this.endDate.value}`
     );
-
-    console.log({ data });
 
     const status = this.selectStatus.value;
 
