@@ -44,7 +44,7 @@ export class CovidData {
   }
 
   async loadHome() {
-    if (!this.localData) {
+    if (!this.summary) {
       const { data } = await api.get("/summary");
       localStorage.setItem("summary", JSON.stringify(data));
       this.summary = JSON.parse(localStorage.getItem("summary"));
