@@ -1,59 +1,41 @@
-This project was bootstrapped with
-[Create React App](https://github.com/facebook/create-react-app).
+# :money_with_wings: React Investments
 
-## Available Scripts
+<p align="center">
+ <a href="https://pt-br.reactjs.org/">React JS</a> • 
+ <a href="https://www.typescriptlang.org/pt/">TypeScript</a> • 
+ <a href="https://chakra-ui.com/">ChakraUI</a>
 
-In the project directory, you can run:
+</p>
 
-### `yarn start`
+<h4 align="center"> 
+:heavy_check_mark::construction:  Projeto React Investments • Concluído  :construction::heavy_check_mark:
+</h4>
 
-Runs the app in the development mode.<br /> Open
-[http://localhost:3000](http://localhost:3000) to view it in the browser.
+<h3 align="center"> :link:  Link do projeto: https://igti-react-modulo2.vercel.app/<hs>
 
-The page will reload if you make edits.<br /> You will also see any lint errors
-in the console.
+<br>
+ <br>
 
-### `yarn test`
+## :receipt: Descrição do Projeto
 
-Launches the test runner in the interactive watch mode.<br /> See the section
-about
-[running tests](https://facebook.github.io/create-react-app/docs/running-tests)
-for more information.
+<p>Projeto desenvolvido no Bootcamp React do IGTI. Essa tarefa tinha por objetivo  consumir um arquivo .json e manipular as informações para renderizá-las na tela. 
+A renderização dos dados se deu através dos compontentes Cards e IncomeTable.</p>
 
-### `yarn build`
+Esse projeto foi desenvolvido utilizando React.js e está hospedado na Vercel.
 
-Builds the app for production to the `build` folder.<br /> It correctly bundles
-React in production mode and optimizes the build for the best performance.
+<br>
 
-The build is minified and the filenames include the hashes.<br /> Your app is
-ready to be deployed!
+## :hammer_and_wrench: Tecnologias
 
-See the section about
-[deployment](https://facebook.github.io/create-react-app/docs/deployment) for
-more information.
+As seguintes ferramentas foram usadas na construção do projeto:
 
-### `yarn eject`
+- [Node.js](https://nodejs.org/en/)
+- [React](https://pt-br.reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<br>
+<hr>
 
-If you aren’t satisfied with the build tool and configuration choices, you can
-`eject` at any time. This command will remove the single build dependency from
-your project.
+Feito com ❤️ por Ana Cornachi :wave:
 
-Instead, it will copy all the configuration files and the transitive
-dependencies (webpack, Babel, ESLint, etc) right into your project so you have
-full control over them. All of the commands except `eject` will still work, but
-they will point to the copied scripts so you can tweak them. At this point
-you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for
-small and middle deployments, and you shouldn’t feel obligated to use this
-feature. However we understand that this tool wouldn’t be useful if you couldn’t
-customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the
-[Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+<a href="https://www.linkedin.com/in/anacornachi/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"/>
